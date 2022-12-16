@@ -122,6 +122,8 @@ int check(struct Card card_player[], int high_card[])
 			number_kind = cnt;
 			high_card[2] = same[i];
 		}
+		else
+			high_card[0] = same[i];
 	}
 	for (int i = 1; i < 7; i++) // 스트레이트 판정
 	{
@@ -154,10 +156,7 @@ int check(struct Card card_player[], int high_card[])
 	}
 
 	if (pair == 0 && number_kind < 3 && straight < 5)
-	{
-		high_card[0] = same[6];
 		return 0;//하이카드
-	}
 	if (pair == 1 && number_kind < 3 && straight < 5 && flush == -1)
 		return 1;//원페어
 	if (pair == 2 && number_kind < 3 && straight < 5 && flush == -1)
